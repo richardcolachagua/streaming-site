@@ -1,12 +1,17 @@
 import { Stack, Typography, Button } from "@mui/material";
 import React from "react";
-import SearchBar from "./SearchBar";
+import SearchBar from "./icons/searchbar";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const handleSearch = (searchTerm) => {
     console.log("Searching for:", searchTerm);
     // Perform API request or other actions based on searchTerm
   };
+
+  const handleLoginClick = () => {};
+
+  const handleSignupClick = () => {};
 
   return (
     <Stack
@@ -22,9 +27,13 @@ const Header = () => {
       }}
       px="20px"
     >
-      <Typography>Hello World</Typography>
-      <Button variant="contained">Login</Button>
-      <Button variant="contained">Sign Up</Button>
+      <Typography fontSize={18}>Streaming Site</Typography>
+      <Link to="/login" onClick={handleLoginClick}>
+        <Button variant="contained">Login</Button>
+      </Link>
+      <Link to="/signup" onClick={handleSignupClick}>
+        <Button variant="contained">Sign Up</Button>
+      </Link>
       <SearchBar onSearch={handleSearch} />
     </Stack>
   );
