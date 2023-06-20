@@ -1,86 +1,74 @@
-import React from "react";
-import { Container, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import { Link as RouterLink } from "react-router-dom";
+
+import {
+  Box,
+  Button,
+  Divider,
+  FormControl,
+  FormHelperText,
+  Grid,
+  Link,
+  IconButton,
+  InputAdornment,
+  Inputlabel,
+  OutlinedInput,
+  Stack,
+  Typography,
+} from "@mui/material";
+
 import * as Yup from "yup";
-import { useFormik } from "formik";
+import { Formik } from "formik";
 
-const Signup = () => {
-  const validationSchema = Yup.object({
-    firstName: Yup.string().required(),
-    lastName: Yup.string().required,
-    email: Yup.string().required(),
-    dob: Yup.string().required(),
-    password: Yup.string().required,
-    confirmPassword: Yup.string().required,
-    creatorName: Yup.string().required,
-    phoneNumber: Yup.string().required,
-    address: Yup.string().required,
-    gender: Yup.string().required,
-  });
-
-  const formik = useFormik({
-    initialValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      dob: "",
-      password: "",
-      confirmPassword: "",
-      creatorName: "",
-      phoneNumber: "",
-      address: "",
-      gender: "",
-    },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
-
+const SignUp = () => {
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="firstName">First Name</label>
-      <input
-        id="firstName"
-        name="firstName"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.firstName}
-      />
-
-      <label htmlFor="lastName">Last Name</label>
-      <input
-        id="lastName"
-        name="lastName"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.lastName}
-      />
-      <label htmlFor="emailName">Email</label>
-      <input
-        id="email"
-        name="email"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.email}
-      />
-
-      <label htmlFor="dob">Date of Birth</label>
-      <input
-        id="dob"
-        name="dob"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.dob}
-      />
-      <label htmlFor="password">Password</label>
-      <input
-        id="password"
-        name="password"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.password}
-      />
-    </form>
+    <>
+      <Formik
+        initialValues={{
+          firstName: "",
+          lastname: "",
+          dob: "",
+          email: "",
+          password: "",
+          setPassword: "",
+          address: "",
+        }}
+        validationSchema={Yup.object().shape({
+          firstName: Yup.string().max(255).required("First Name is required"),
+          lastName: Yup.string().max(255).required("Last Name is required"),
+          email: Yup.string()
+            .email("Must be a valid email")
+            .max(255)
+            .required("Email is required"),
+        })}
+        onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
+          try {
+            setStatus({ success: false });
+            setSubmitting(false);
+          } catch (err) {
+            console.error(err);
+            setStatus({ success: false });
+            setErrors({ submit: err.message });
+            setSubmitting(false);
+          }
+        }}
+      >
+        {({
+          errors,
+          handleBlur,
+          handleChange,
+          handleSubmit,
+          isSubmitting,
+          touched,
+          values,
+        }) => (
+          <form>
+            <Grid container spacing={3}></Grid>
+          </form>
+        )}
+      </Formik>
+    </>
   );
 };
 
-export default Signup;
+export default SignUp;

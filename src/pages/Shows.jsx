@@ -1,7 +1,12 @@
+import { Grid } from "@mui/material";
 import React from "react";
 
 const Shows = () => {
-  return <div>Shows</div>;
+  return (
+    <Grid>
+      <Grid></Grid>
+    </Grid>
+  );
 };
 
 export default Shows;
