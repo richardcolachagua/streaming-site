@@ -27,7 +27,7 @@ const HomePage = () => {
           </Button>
         </Link>
         <Box>
-          <Typography fontSize={30} variant="span">
+          <Typography fontSize={30} variant="h4">
             TOP 10 IN MOVIES | TOP 10 IN SHOWS
           </Typography>
         </Box>

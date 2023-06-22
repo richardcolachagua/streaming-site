@@ -1,105 +1,183 @@
 import React from "react";
-import { useFormik } from "formik";
-import * as Yup from "yup";
+import { Link as RouterLink } from "react-router-dom";
+
 import {
-  TextField,
   Button,
-  Container,
-  Grid,
-  Box,
-  Link,
+  Checkbox,
   FormControlLabel,
+  FormHelperText,
+  Grid,
+  Link,
+  IconButton,
+  InputAdornment,
+  InputLabel,
+  OutlinedInput,
+  Stack,
   Typography,
 } from "@mui/material";
-import { CheckBox } from "@mui/icons-material";
-import Avatar from "@mui/material/Avatar";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import CssBaseline from "@mui/material/CssBaseline";
 
-const validationSchema = Yup.object({
-  email: Yup.string().required("Username is required"),
-  password: Yup.string().required("Password is required"),
-});
+import * as Yup from "yup";
+import { Formik } from "formik";
 
-const LoginForm = () => {
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-    },
-    validationSchema: validationSchema,
-    onSubmit: (values) => {
-      console.log(values);
-    },
-  });
+const Login = () => {
+  const [checked, setChecked] = React.useState(false);
 
+  const [showPassword, setShowPassword] = React.useState(false);
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <Box
-        sx={{
-          marginTop: 8,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
+    <>
+      <Formik
+        initialValues={{
+          email: "email@email.com",
+          password: "enter password",
+          submit: null,
+        }}
+        validationSchema={Yup.object().shape({
+          email: Yup.string()
+            .email("Must be a valid email")
+            .max(255)
+            .required("Email is required"),
+          password: Yup.string().max(255).required("Password is required"),
+        })}
+        onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
+          try {
+            setStatus({ success: false });
+            setSubmitting(false);
+          } catch (err) {
+            setStatus({ success: false });
+            setErrors({ submit: err.message });
+            setSubmitting(false);
+          }
         }}
       >
-        <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography fontWeight={700} fontSize="22px">
-          Welcome Back!
-        </Typography>
-        <Box component="form" noValidate sx={{ mt: 1 }}>
-          <form onSubmit={formik.handleSubmit}>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <TextField
-                id="email"
-                name="email"
-                label="email"
-                value={formik.values.username}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                error={formik.touched.username && Boolean(formik.errors.email)}
-                helperText={formik.touched.username && formik.errors.email}
-              />
-              <TextField
-                id="password"
-                name="password"
-                label="Password"
-                type="password"
-                value={formik.values.password}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                error={
-                  formik.touched.password && Boolean(formik.errors.password)
-                }
-                helperText={formik.touched.password && formik.errors.password}
-              />
-              <FormControlLabel
-                control={<CheckBox value="remember" color="primary" />}
-              />
-            </div>
-            <Button type="submit" variant="contained" color="primary">
-              SIGN IN
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
+        {({
+          errors,
+          handleBlur,
+          handleChange,
+          handleSubmit,
+          isSubmitting,
+          touched,
+          values,
+        }) => (
+          <form noValidate onSubmit={handleSubmit}>
+            <Grid container spacing={3}>
+              <Grid item xs={12}>
+                <Stack spacing={1}>
+                  <InputLabel htmlFor="email-login">Email Address</InputLabel>
+                  <OutlinedInput
+                    id="email-login"
+                    type="email"
+                    value={values.email}
+                    name="email"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    placeholder="Enter email address"
+                    fullWidth
+                    error={Boolean(touched.email && errors.email)}
+                  />
+                  {touched.email && errors.email && (
+                    <FormHelperText
+                      error
+                      id="standard-weight-helper-text-email-login"
+                    >
+                      {errors.email}
+                    </FormHelperText>
+                  )}
+                </Stack>
               </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
+              <Grid item xs={12}>
+                <Stack spacing={1}>
+                  <InputLabel htmlFor="password-login">Password</InputLabel>
+                  <OutlinedInput
+                    fullWidth
+                    error={Boolean(touched.password && errors.password)}
+                    id="-password-login"
+                    type={showPassword ? "text" : "password"}
+                    value={values.password}
+                    name="password"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password availability"
+                          onClick={handleClickShowPassword}
+                          onMouseDown={handleMouseDownPassword}
+                          edge="end"
+                          size="large"
+                        ></IconButton>
+                      </InputAdornment>
+                    }
+                    placeholder="Enter password"
+                  />
+                  {touched.password && errors.password && (
+                    <FormHelperText
+                      error
+                      id="standard-weight-helper-text-password-login"
+                    >
+                      {errors.password}
+                    </FormHelperText>
+                  )}
+                </Stack>
+              </Grid>
+              <Grid item xs={12} sx={{ mt: -1 }}>
+                <Stack
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="center"
+                  spacing={2}
+                >
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={(event) => setChecked(event.target.checked)}
+                        name="checked"
+                        color="primary"
+                        size="small"
+                      />
+                    }
+                    label={
+                      <Typography variant="h6">Keep me signed in</Typography>
+                    }
+                  />
+                  <Link
+                    variant="h6"
+                    component={RouterLink}
+                    to=""
+                    color="text-primary"
+                  >
+                    Forgot Password
+                  </Link>
+                </Stack>
+              </Grid>
+              {errors.submit && (
+                <Grid item xs={12}>
+                  <FormHelperText error>{errors.submit}</FormHelperText>
+                </Grid>
+              )}
+              <Grid item xs={12}>
+                <Button
+                  disabledElevation
+                  disabled={isSubmitting}
+                  fullWidth
+                  size="large"
+                  type="submit"
+                >
+                  Login
+                </Button>
               </Grid>
             </Grid>
           </form>
-        </Box>
-      </Box>
-    </Container>
+        )}
+      </Formik>
+    </>
   );
 };
 
-export default LoginForm;
+export default Login;

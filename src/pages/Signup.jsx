@@ -4,7 +4,6 @@ import { Link as RouterLink } from "react-router-dom";
 import {
   Box,
   Button,
-  Divider,
   FormControl,
   FormHelperText,
   Grid,
@@ -16,6 +15,7 @@ import {
   Typography,
   InputLabel,
 } from "@mui/material";
+//import { strengthColor, strengthIndicator } from "utils/password-strength";
 
 import * as Yup from "yup";
 import { Formik } from "formik";
@@ -24,8 +24,8 @@ const SignUp = () => {
   const [level, setLevel] = useState();
   const [showPassword, setShowPassword] = useState();
 
-  const handleClickShowPassword = (event) => {
-    event.preventDefault();
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
   };
 
   const handleMouseDownPassword = (event) => {
@@ -33,8 +33,8 @@ const SignUp = () => {
   };
 
   const changePassword = (value) => {
-    const temp = strengthIndicator(value);
-    setLevel(strengthColor(temp));
+    // const temp = strengthIndicator(value);
+    // setLevel(strengthColor(temp));
   };
   useEffect(() => {
     changePassword("");
@@ -49,7 +49,7 @@ const SignUp = () => {
           dob: "",
           email: "",
           password: "",
-          setPassword: "",
+          setpassword: "",
           address: "",
         }}
         validationSchema={Yup.object().shape({
@@ -60,7 +60,7 @@ const SignUp = () => {
             .max(255)
             .required("Email is required"),
           password: Yup.string().max(255).required("Password is requireed"),
-          setPassword: Yup.string()
+          setpassword: Yup.string()
             .max(255)
             .required("set password is required"),
           address: Yup.string().max(255).required("Address is required"),
@@ -209,6 +209,92 @@ const SignUp = () => {
                     </FormHelperText>
                   )}
                 </Stack>
+                <Grid item xs={12}>
+                  <Stack spacing={1}>
+                    <InputLabel htmlFor="confirmpassword-signup">
+                      Confirm Password
+                    </InputLabel>
+                    <OutlinedInput
+                      filledWidth
+                      error={Boolean(touched.setpassword && errors.setpassword)}
+                      value={values.setpassword}
+                      name="setpassword"
+                      onBlur={handleBlur}
+                      onChange={(e) => {
+                        handleChange(e);
+                        changePassword(e.target.value);
+                      }}
+                      endAdornment={
+                        <InputAdornment position="end">
+                          <IconButton
+                            aria-label="toggle password visbility"
+                            onClick={handleClickShowPassword}
+                            onMouseDown={handleMouseDownPassword}
+                            edge="end"
+                            size="large"
+                          ></IconButton>
+                        </InputAdornment>
+                      }
+                    />
+                  </Stack>
+                </Grid>
+                <Grid item xs={12}>
+                  <Stack spacing={1}>
+                    <InputLabel htmlFor="address-signup">Address</InputLabel>
+                    <OutlinedInput
+                      fullWidth
+                      error={Boolean(touched.address && errors.address)}
+                      id="address-signup"
+                      value={values.address}
+                      name="address"
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      placeholder="address"
+                    ></OutlinedInput>
+                  </Stack>
+                </Grid>
+                <FormControl fullWidth sx={{ mt: 2 }}>
+                  <Grid container spacing={2} alignItems="center">
+                    <Grid item>
+                      <Box
+                        sx={{
+                          bgcolor: level?.color,
+                          width: 85,
+                          height: 8,
+                          borderRadius: "7px",
+                        }}
+                      />
+                    </Grid>
+                  </Grid>
+                </FormControl>
+                <Grid item xs={12}>
+                  <Typography variant="body2">
+                    By Signing up, you agree to our &nbsp;
+                    <Link variant="subtitle2" component={RouterLink} to="#">
+                      Terms of Service
+                    </Link>
+                    &nbsp; and &nbsp;
+                    <Link variant="subtitle2" component={RouterLink} to="#">
+                      Privacy Policy
+                    </Link>
+                  </Typography>
+                </Grid>
+                {errors.submit && (
+                  <Grid item xs={12}>
+                    <FormHelperText error>{errors.submit}</FormHelperText>
+                  </Grid>
+                )}
+                <Button
+                  disableElevation
+                  disabled={isSubmitting}
+                  fullWidth
+                  size="large"
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                >
+                  Create Account
+                </Button>
               </Grid>
             </Grid>
           </form>
