@@ -1,5 +1,4 @@
 import { Box, Grid, Link, Typography } from "@mui/material";
-import link from "react-router-dom";
 import React from "react";
 
 const Shows = () => {

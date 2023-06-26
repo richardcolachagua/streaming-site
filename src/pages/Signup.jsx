@@ -59,7 +59,7 @@ const SignUp = () => {
             .email("Must be a valid email")
             .max(255)
             .required("Email is required"),
-          password: Yup.string().max(255).required("Password is requireed"),
+          password: Yup.string().max(255).required("Password is required"),
           setpassword: Yup.string()
             .max(255)
             .required("set password is required"),
@@ -133,7 +133,7 @@ const SignUp = () => {
               </Grid>
               <Grid item xs={12}>
                 <Stack spacing={1}>
-                  <InputLabel htmlFor="dob-signup">dob</InputLabel>
+                  <InputLabel htmlFor="dob-signup">DOB</InputLabel>
                   <OutlinedInput
                     fullWidth
                     error={Boolean(touched.company && errors.company)}
