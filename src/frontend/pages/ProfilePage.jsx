@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, TextField, Button, Avatar } from "@mui/material";
-import Header from "../components/Header.jsx";
+import Header from "../../components/Header.jsx";
 
 const ProfilePage = () => {
   return (

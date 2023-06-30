@@ -51,6 +51,7 @@ const MemberSettings = () => {
           type="submit"
           variant="contained"
           sx={{ alignSelf: "flex-start", mt: 2 }}
+          onClick={handleSubmit}
         >
           Update
         </Button>
