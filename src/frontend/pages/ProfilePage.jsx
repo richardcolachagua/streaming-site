@@ -23,10 +23,16 @@ import locations from "../../components/locations.jsx";
 // Select components. The find method is used to filter the locations array based on the selected
 // state and country.
 
+//Language
+// The handleLanguageChange function updates the selected language value when the user selects a new option
+//from the dropdown menu. The Select element is populated with options for languages, which you can customize
+// according to your requirements.
+
 const ProfilePage = () => {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [image, setImage] = useState("");
+  const [language, setLanguage] = useState("");
 
   const handleCityChange = (event) => {
     setCity(event.target.value);
@@ -36,9 +42,66 @@ const ProfilePage = () => {
     setState(event.target.value);
   };
 
+  const handleLanguageChange = (event) => {
+    setLanguage(event.target.value);
+  };
+
   function handleSubmit(event) {
     event.preventDefault();
   }
+  const languages = [
+    "Mandarin Chinese",
+    "Spanish",
+    "English",
+    "Hindi",
+    "Arabic",
+    "Bengali",
+    "Portuguese",
+    "Russian",
+    "Japanese",
+    "Punjabi",
+    "German",
+    "Javanese",
+    "Wu Chinese",
+    "Malay/Indonesian",
+    "Telugu",
+    "Vietnamese",
+    "Korean",
+    "French",
+    "Marathi",
+    "Tamil",
+    "Urdu",
+    "Turkish",
+    "Italian",
+    "Yue Chinese",
+    "Thai",
+    "Gujarati",
+    "Jin Chinese",
+    "Southern Min",
+    "Persian",
+    "Polish",
+    "Pashto",
+    "Kannada",
+    "Xiang Chinese",
+    "Malayalam",
+    "Sundanese",
+    "Hausa",
+    "Odia",
+    "Burmese",
+    "Hakka Chinese",
+    "Ukrainian",
+    "Bhojpuri",
+    "Tagalog",
+    "Yoruba",
+    "Maithili",
+    "Uzbek",
+    "Sindhi",
+    "Amharic",
+    "Fula",
+    "Romanian",
+    "Oromo",
+    "Igbo",
+  ];
 
   return (
     <Box>
@@ -107,6 +170,24 @@ const ProfilePage = () => {
         </Box>
         <Box>
           <Typography>Add a language</Typography>
+          <FormControl fullWidth sx={{ marginBottom: 2 }}>
+            <InputLabel id="language-select-label"> Language</InputLabel>
+            <Select
+              labelId="language-select-label"
+              value={language}
+              onChange={handleLanguageChange}
+              label="Language"
+            >
+              <MenuItem value="">
+                <em>Select Language</em>
+              </MenuItem>
+              {languages.map((language) => (
+                <MenuItem key={language} value={language}>
+                  {language}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </Box>
         <Button color="primary" type="submit" onClick={handleSubmit}>
           Submit Profile
