@@ -1,27 +1,114 @@
-import React from "react";
-import { Box, Typography, TextField, Button, Avatar } from "@mui/material";
+import React, { useState } from "react";
+import {
+  Box,
+  Typography,
+  TextField,
+  Button,
+  Avatar,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+} from "@mui/material";
 import Header from "../../components/Header.jsx";
+import locations from "../../components/locations.jsx";
+
+// Avatar
+// Add an input element to the ProfilePage component to allow the user to select an image file.
+// The sx prop is used to set the width and height of the Avatar component.
+// The src prop is set to the URL of the selected image file using the URL.createObjectURL() method.
+
+// State City Dropdown
+// we import the locations array from locations.js and use the map method to generate the options for the
+// Select components. The find method is used to filter the locations array based on the selected
+// state and country.
 
 const ProfilePage = () => {
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [image, setImage] = useState("");
+
+  const handleCityChange = (event) => {
+    setCity(event.target.value);
+  };
+
+  const handleStateChange = (event) => {
+    setState(event.target.value);
+  };
+
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
+
   return (
     <Box>
       <Header />
-      <Typography>Customize Your Profile</Typography>
+      <Typography sx={{ fontWeight: "bold", fontSize: 20 }}>
+        Customize Your Profile
+      </Typography>
       <Box>
         <Typography>What type of content are you uploading?</Typography>
         <Box>
           <Typography>Add A Bio</Typography>
           <TextField alt="Bio">Enter Bio Here</TextField>
         </Box>
-        <Avatar alt="" src="" sx={{ width: 56, height: 56 }}></Avatar>
+        <input type="file" onChange={(e) => setImage(e.target.files[0])} />
+
+        <Avatar
+          alt=""
+          sx={{ width: 100, height: 100 }}
+          src={image ? URL.createObjectURL(image) : ""}
+        ></Avatar>
         <Typography>Add a Photo</Typography>
-        <Box>
-          <Typography>Add Your Location</Typography>
+        <Box sx={{ display: "flex", gap: 2 }}>
+          <FormControl fullWidth>
+            <InputLabel id="state-select-label">State</InputLabel>
+            <Select
+              labelId="state-select-kabek"
+              value={state}
+              onChange={handleStateChange}
+              label="State"
+            >
+              <MenuItem value="">
+                <em>Select State</em>
+              </MenuItem>
+              {locations.map((country) =>
+                country.children.map((state) => (
+                  <MenuItem key={state.name} value={state.name}>
+                    {state.name}
+                  </MenuItem>
+                ))
+              )}
+            </Select>
+          </FormControl>
+          <FormControl fullWidth>
+            <InputLabel id="city-select-label">City</InputLabel>
+            <Select
+              labelId="city-select-label"
+              value={city}
+              onChange={handleCityChange}
+              label="City"
+            >
+              <MenuItem value="">
+                <em>Select City</em>
+              </MenuItem>
+              {locations
+                .find((country) =>
+                  country.children.find((state) => state.name === state)
+                )
+                .children.find((state) => state.name === state)
+                .children.map((city) => (
+                  <MenuItem key={city.name} value={city.name}>
+                    {city.name}
+                  </MenuItem>
+                ))}
+            </Select>
+          </FormControl>
         </Box>
         <Box>
           <Typography>Add a language</Typography>
         </Box>
-        <Button color="primary" type="submit">
+        <Button color="primary" type="submit" onClick={handleSubmit}>
           Submit Profile
         </Button>
       </Box>
