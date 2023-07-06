@@ -16,15 +16,41 @@ const Following = () => {
     { id: 10, name: "Karen Lee", avatar: "https://picsum.photos/200" },
   ]);
 
-  const handleUnfollow = (id) => {};
+  const handleUnfollow = (id) => {
+    setFollowers(followers.filter((follower) => follower.id !== id));
+  };
   return (
-    <Grid container>
-      <SearchBar />
-      <Box textAlign="left">
-        <Typography variant="h2">Following</Typography>
-      </Box>
-      <Box></Box>
-    </Grid>
+    <Box sx={{ padding: 2 }}>
+      <Typography variant="h4" gutterBottom>
+        Following ({followers.length})
+      </Typography>
+      <Grid container spacing={2}>
+        {followers.map((follower) => (
+          <Grid item xs={6} sm={4} md={2} key={follower.id}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <Avatar
+                src={follower.avatar}
+                alt={follower.name}
+                sx={{ width: 100, height: 100, marginBottom: 1 }}
+              />
+              <Typography variant="subtitle1">{follower.name}</Typography>
+              <Button
+                variant="outlined"
+                onClick={() => handleUnfollow(follower.id)}
+              >
+                Unfollow
+              </Button>
+            </Box>
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
   );
 };
 
