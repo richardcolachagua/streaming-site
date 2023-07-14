@@ -127,7 +127,7 @@ const Login = () => {
                     <OutlinedInput
                       fullWidth
                       error={Boolean(touched.password && errors.password)}
-                      id="-password-login"
+                      id="password-login"
                       type={showPassword ? "text" : "password"}
                       value={values.password}
                       name="password"
@@ -178,9 +178,7 @@ const Login = () => {
                           size="small"
                         />
                       }
-                      label={
-                        <Typography variant="h6">Keep me signed in</Typography>
-                      }
+                      label={<Typography>Keep me signed in</Typography>}
                     />
                     <Link
                       component={RouterLink}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box, Grid, Typography, Avatar, Button } from "@mui/material";
-import SearchBar from "../components/icons/searchbar";
+import SearchBar from "../components/SearchBar";
 
 const Following = () => {
   const [followers, setFollowers] = useState([
