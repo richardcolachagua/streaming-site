@@ -16,7 +16,9 @@ const LandingPage = () => {
         color: "#fff",
       }}
     >
-      <Box sx={{ padding: "32px" }}>
+      <Box
+        sx={{ padding: "32px", display: "flex", justifyContent: "flex-end" }}
+      >
         <Link>
           <Button
             variant="contained"
@@ -45,62 +47,96 @@ const LandingPage = () => {
             Sign Up
           </Button>
         </Link>
-        <Box sx={{ marginTop: "32px", marginBottom: "32px" }}>
-          <Typography fontSize={48} variant="h2" sx={{ fontWeight: "bold" }}>
-            TOP 10 IN MOVIES | TOP 10 IN SHOWS
-          </Typography>
-        </Box>
-        <Box sx={{ display: "flex", marginBottom: "32px" }}>
-          <HomepageCard />
-          <HomepageCard />
-        </Box>
+      </Box>
+      <Box sx={{ padding: "32px" }}>
+        <Typography fontSize={48} variant="h2" sx={{ fontWeight: "bold" }}>
+          TOP 10 IN MOVIES | TOP 10 IN SHOWS
+        </Typography>
+      </Box>
+      <Box sx={{ display: "flex", marginBottom: "32px", padding: "32px" }}>
+        <HomepageCard />
+        <HomepageCard />
+      </Box>
 
+      <Box sx={{ display: "flex", marginTop: "32px", padding: "32px" }}>
         <Typography fontSize={48} sx={{ fontWeight: "bold" }}>
           Coming Soon To A Screen Near You
         </Typography>
-
-        <Box sx={{ display: "flex", marginTop: "32px" }}>
-          <Box>
-            <Container
+        <Box>
+          <Container
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "16px",
+            }}
+          >
+            <Box
               sx={{
+                width: 300,
+                height: 200,
+                backgroundColor: "#FF1F33",
+                borderRadius: "8px",
                 display: "flex",
-                flexWrap: "wrap",
-                gap: "16px",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
-              <Box
-                sx={{
-                  width: 300,
-                  height: 200,
-                  backgroundColor: "#FF1F33",
-                  borderRadius: "8px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
+              <Typography
+                variant="h5"
+                sx={{ fontWeight: "bold", textAlign: "center" }}
               >
-                <Typography
-                  variant="h5"
-                  sx={{ fontWeight: "bold", textAlign: "center" }}
-                >
-                  Movie
-                </Typography>
-              </Box>
-            </Container>
-          </Box>
+                Movie
+              </Typography>
+            </Box>
+          </Container>
         </Box>
-        <Box>
-          <Typography fontSize={48} sx={{ fontWeight: "bold" }}>
-            Still Have Questions?
-          </Typography>
-          <Accordion>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-            ></AccordionSummary>
-          </Accordion>
-        </Box>
+      </Box>
+      <Box sx={{ backgroundColor: "#FF1F33" }}>
+        <Typography fontSize={48} sx={{ fontWeight: "bold" }}>
+          Still Have Questions?
+        </Typography>
+        <Accordion
+          sx={{
+            backgroundColor: "transparent",
+            boxShadow: "none",
+            "& .MuiAccordionSummary-root": {
+              backgroundColor: "transparent",
+            },
+          }}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography>
+              What is the difference between a Creator and a Streamer?
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              The difference between a Creator and a Streamer is that Creators
+              provide the content you are viewing on the wesbite. Streamers do
+              not.
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography>Do I have to pay for ?</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              There is not a fee at this time. Please be aware that we will
+              begin to charge for both streamers and creators as the site
+              continues to expand.
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
       </Box>
       <Footer />
     </Box>
