@@ -50,26 +50,139 @@ const LandingPage = () => {
       </Box>
       <Box sx={{ padding: "32px" }}>
         <Typography fontSize={48} variant="h2" sx={{ fontWeight: "bold" }}>
-          TOP 10 IN MOVIES | TOP 10 IN SHOWS
+          The New Age of Streaming
         </Typography>
       </Box>
-      <Box sx={{ display: "flex", marginBottom: "32px", padding: "32px" }}>
+      <Box
+        sx={{
+          display: "flex",
+          gap: "16px",
+          padding: "5px",
+          marginBottom: "3px",
+        }}
+      >
+        <HomepageCard />
+        <HomepageCard />
+        <HomepageCard />
+        <HomepageCard />
         <HomepageCard />
         <HomepageCard />
       </Box>
-
-      <Box sx={{ display: "flex", marginTop: "32px", padding: "32px" }}>
+      <Box sx={{ padding: "32px" }}>
+        <Typography fontSize={48} variant="h2" sx={{ fontWeight: "bold" }}>
+          ABOUT US
+        </Typography>{" "}
+        <Typography fontSize={20} variant="h2" sx={{ fontWeight: "bold" }}>
+          ____ is a site dedicated to streaming with the creative community and
+          to the binge watchers. We take a consumer/creator mindset approach to
+          give the best streaming expeience possible.
+        </Typography>
+      </Box>
+      <Box sx={{ marginTop: "32px", padding: "32px" }}>
         <Typography fontSize={48} sx={{ fontWeight: "bold" }}>
-          Coming Soon To A Screen Near You
+          Coming Soon
         </Typography>
-        <Box>
+        <Box
+          sx={{ display: "flex", justifyContent: "center", padding: "15px" }}
+        >
           <Container
             sx={{
               display: "flex",
               flexWrap: "wrap",
               gap: "16px",
+              justifyContent: "center",
             }}
           >
+            <Box
+              sx={{
+                width: 300,
+                height: 200,
+                backgroundColor: "#FF1F33",
+                borderRadius: "8px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Typography
+                variant="h5"
+                sx={{ fontWeight: "bold", textAlign: "center" }}
+              >
+                Movie
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                width: 300,
+                height: 200,
+                backgroundColor: "#FF1F33",
+                borderRadius: "8px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Typography
+                variant="h5"
+                sx={{ fontWeight: "bold", textAlign: "center" }}
+              >
+                Movie
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                width: 300,
+                height: 200,
+                backgroundColor: "#FF1F33",
+                borderRadius: "8px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Typography
+                variant="h5"
+                sx={{ fontWeight: "bold", textAlign: "center" }}
+              >
+                Movie
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                width: 300,
+                height: 200,
+                backgroundColor: "#FF1F33",
+                borderRadius: "8px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Typography
+                variant="h5"
+                sx={{ fontWeight: "bold", textAlign: "center" }}
+              >
+                Movie
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                width: 300,
+                height: 200,
+                backgroundColor: "#FF1F33",
+                borderRadius: "8px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Typography
+                variant="h5"
+                sx={{ fontWeight: "bold", textAlign: "center" }}
+              >
+                Movie
+              </Typography>
+            </Box>
             <Box
               sx={{
                 width: 300,
@@ -118,6 +231,39 @@ const LandingPage = () => {
               The difference between a Creator and a Streamer is that Creators
               provide the content you are viewing on the wesbite. Streamers do
               not.
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography>Do I have to pay for ?</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              There is not a fee at this time. Please be aware that we will
+              begin to charge for both streamers and creators as the site
+              continues to expand.
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography>
+              Are there any qualifications to upload content like Netflix?
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              Yes, here are the minimum requirements for uploading content as a
+              Creator:
             </Typography>
           </AccordionDetails>
         </Accordion>
