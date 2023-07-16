@@ -7,6 +7,7 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import FeatureSection from "../components/CreatorStreamerFeatures";
 
 const LandingPage = () => {
   return (
@@ -71,7 +72,7 @@ const LandingPage = () => {
       <Box sx={{ padding: "32px" }}>
         <Typography fontSize={48} variant="h2" sx={{ fontWeight: "bold" }}>
           ABOUT US
-        </Typography>{" "}
+        </Typography>
         <Typography fontSize={20} variant="h2" sx={{ fontWeight: "bold" }}>
           ____ is a site dedicated to streaming with the creative community and
           to the binge watchers. We take a consumer/creator mindset approach to
@@ -204,6 +205,7 @@ const LandingPage = () => {
           </Container>
         </Box>
       </Box>
+      <FeatureSection />
       <Box sx={{ backgroundColor: "#FF1F33" }}>
         <Typography fontSize={48} sx={{ fontWeight: "bold" }}>
           Still Have Questions?
@@ -273,13 +275,12 @@ const LandingPage = () => {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography>Do I have to pay for ?</Typography>
+            <Typography>Can I go from Streamer to Creator?</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              There is not a fee at this time. Please be aware that we will
-              begin to charge for both streamers and creators as the site
-              continues to expand.
+              Yes, you can go from Streamer to Creator. Click here to find out
+              how.
             </Typography>
           </AccordionDetails>
         </Accordion>
