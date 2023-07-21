@@ -20,7 +20,7 @@ const LandingPage = () => {
       <Box
         sx={{ padding: "32px", display: "flex", justifyContent: "flex-end" }}
       >
-        <Link>
+        <Link to="/login">
           <Button
             variant="contained"
             sx={{
@@ -29,12 +29,13 @@ const LandingPage = () => {
               fontWeight: "bold",
               fontSize: "16px",
               borderRadius: "30px",
+              Link: "/login",
             }}
           >
             Login
           </Button>
         </Link>
-        <Link>
+        <Link to="/signup">
           <Button
             variant="contained"
             sx={{
