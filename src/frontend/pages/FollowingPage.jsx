@@ -16,41 +16,58 @@ const Following = () => {
     { id: 10, name: "Karen Lee", avatar: "https://picsum.photos/200" },
   ]);
 
+  const handleToggle = ( ) => {
+    setSelectedOption ( selectedOption === "Following" ? "Follower");
+  }
+
   const handleUnfollow = (id) => {
     setFollowers(followers.filter((follower) => follower.id !== id));
   };
   return (
-    <Box sx={{ padding: 2 }}>
+    <Grid
+      container
+      sx={{
+        width: "800px",
+        height: "500px",
+        backgroundColor: "#0000D5",
+        borderRadius: "5px",
+        display: "flex",
+        marginBottom: "16px",
+      }}
+    >
       <Typography variant="h4" gutterBottom>
         Following ({followers.length})
       </Typography>
-      <Grid container spacing={2}>
-        {followers.map((follower) => (
-          <Grid item xs={6} sm={4} md={2} key={follower.id}>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <Avatar
-                src={follower.avatar}
-                alt={follower.name}
-                sx={{ width: 100, height: 100, marginBottom: 1 }}
-              />
-              <Typography variant="subtitle1">{follower.name}</Typography>
-              <Button
-                variant="outlined"
-                onClick={() => handleUnfollow(follower.id)}
+
+      <Box sx={{ padding: 2, backgroundColor: "#000", color: "#fff" }}>
+        <Grid container spacing={2}>
+          {followers.map((follower) => (
+            <Grid item xs={6} sm={4} md={2} key={follower.id}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
               >
-                Unfollow
-              </Button>
-            </Box>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
+                <Avatar
+                  src={follower.avatar}
+                  alt={follower.name}
+                  sx={{ width: 100, height: 100, marginBottom: 1 }}
+                />
+                <Typography variant="subtitle1">{follower.name}</Typography>
+                <Button
+                  variant="outlined"
+                  onClick={() => handleUnfollow(follower.id)}
+                >
+                  Unfollow
+                </Button>
+              </Box>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+    </Grid>
   );
 };
 
