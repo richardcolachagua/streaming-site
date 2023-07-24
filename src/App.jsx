@@ -5,6 +5,7 @@ import Login from "./frontend/auth/Login";
 import SignupPage from "./frontend/auth/Signup";
 import Shows from "./frontend/pages/Shows";
 import Following from "./frontend/pages/FollowingPage";
+import CreatorDashboard from "./frontend/pages/CreatorDashboard";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/shows" element={<Shows />} />
         <Route path="/following" element={<Following />} />
+        <Route path="/creatordashboard" element={<CreatorDashboard />} />
       </Routes>
     </div>
   );
