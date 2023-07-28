@@ -207,7 +207,7 @@ const LandingPage = () => {
         </Box>
       </Box>
       <FeatureSection />
-      <Box sx={{ backgroundColor: "" }}>
+      <Box>
         <Typography fontSize={48} sx={{ fontWeight: "bold" }}>
           Still Have Questions?
         </Typography>

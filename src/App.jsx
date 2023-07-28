@@ -6,6 +6,7 @@ import SignupPage from "./frontend/auth/Signup";
 import Shows from "./frontend/pages/Shows";
 import Following from "./frontend/pages/FollowingPage";
 import CreatorDashboard from "./frontend/pages/CreatorDashboard";
+import TrendingPage from "./frontend/pages/TrendingPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/shows" element={<Shows />} />
         <Route path="/following" element={<Following />} />
         <Route path="/creatordashboard" element={<CreatorDashboard />} />
+        <Route path="/trending" element={<TrendingPage />} />
       </Routes>
     </div>
   );
