@@ -15,10 +15,45 @@ const Header = () => {
           marginBottom: "25px",
         }}
       >
-        <Button variant="contained">Movies</Button>
-        <Button>Shows</Button>
-        <Button>New & Popular</Button>
-        <Button>Log Out</Button>
+        <Link to="/movies">
+          <Button
+            variant="text"
+            sx={{ fontWeight: "bold", fontSize: "16px", Link: "/movies" }}
+          >
+            Movies
+          </Button>
+        </Link>
+
+        <Link to="/shows">
+          <Button
+            variant="text"
+            sx={{ fontWeight: "bold", fontSize: "16px", Link: "/shows" }}
+          >
+            Shows
+          </Button>
+        </Link>
+
+        <Link to="/newandpopular">
+          <Button
+            variant="text"
+            sx={{
+              fontWeight: "bold",
+              fontSize: "16px",
+              Link: "/newandpopular",
+            }}
+          >
+            New & Popular
+          </Button>
+        </Link>
+
+        <Link to="/landingpage">
+          <Button
+            variant="contained"
+            sx={{ fontWeight: "bold", fontSize: "16px", Link: "/landingpage" }}
+          >
+            Log Out
+          </Button>
+        </Link>
       </Stack>
     </Box>
   );

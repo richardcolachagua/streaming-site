@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Box, Grid, Typography, Avatar, Button } from "@mui/material";
+import Header from "../components/Headers/Header";
 
 const Following = () => {
   const [selectedOption, setSelectedOption] = useState("Following");
@@ -78,80 +79,83 @@ const Following = () => {
     selectedOption === " Following " ? following.length : followers.length;
 
   return (
-    <Grid
-      container
-      sx={{
-        overflow: "auto",
-        width: "900px",
-        height: "400px",
-        backgroundColor: "#0000D5",
-        borderRadius: "5px",
-        display: "flex",
-        marginBottom: "16px",
-      }}
-    >
-      <Box
+    <>
+      <Header />
+      <Grid
+        container
         sx={{
+          overflow: "auto",
+          width: "900px",
+          height: "400px",
+          backgroundColor: "#0000D5",
+          borderRadius: "5px",
           display: "flex",
-          justifyContent: "center",
-          marginBottom: "32px",
+          marginBottom: "16px",
         }}
       >
-        <Button
-          variant={selectedOption === "Following" ? "contained" : "outlined"}
-          onClick={handleToggle}
-          sx={{ marginRight: "16px" }}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: "32px",
+          }}
         >
-          <Typography variant="h4" gutterBottom>
-            Following ({count})
-          </Typography>
-        </Button>
+          <Button
+            variant={selectedOption === "Following" ? "contained" : "outlined"}
+            onClick={handleToggle}
+            sx={{ marginRight: "16px" }}
+          >
+            <Typography variant="h4" gutterBottom>
+              Following ({count})
+            </Typography>
+          </Button>
 
-        <Button
-          variant={selectedOption === "Followers" ? "contained" : "outlined"}
-          onClick={handleToggle}
+          <Button
+            variant={selectedOption === "Followers" ? "contained" : "outlined"}
+            onClick={handleToggle}
+          >
+            <Typography variant="h4" gutterBottom>
+              Followers ({count})
+            </Typography>
+          </Button>
+        </Box>
+
+        <Box
+          sx={{
+            padding: 2,
+            backgroundColor: "#000",
+            color: "#fff",
+          }}
         >
-          <Typography variant="h4" gutterBottom>
-            Followers ({count})
-          </Typography>
-        </Button>
-      </Box>
-
-      <Box
-        sx={{
-          padding: 2,
-          backgroundColor: "#000",
-          color: "#fff",
-        }}
-      >
-        <Grid container spacing={2}>
-          {displayList.map((user) => (
-            <Grid item xs={6} sm={4} md={2} key={user.id}>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-              >
-                <Avatar
-                  src={user.avatar}
-                  alt={user.name}
-                  sx={{ width: 100, height: 100, marginBottom: 1 }}
-                />
-                <Typography variant="subtitle1">{user.name}</Typography>
-                <Button
-                  variant="outlined"
-                  onClick={() => handleUnfollow(user.id)}
+          <Grid container spacing={2}>
+            {displayList.map((user) => (
+              <Grid item xs={6} sm={4} md={2} key={user.id}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
                 >
-                  Unfollow
-                </Button>
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
-    </Grid>
+                  <Avatar
+                    src={user.avatar}
+                    alt={user.name}
+                    sx={{ width: 100, height: 100, marginBottom: 1 }}
+                  />
+                  <Typography variant="subtitle1">{user.name}</Typography>
+                  <Button
+                    variant="outlined"
+                    onClick={() => handleUnfollow(user.id)}
+                  >
+                    Unfollow
+                  </Button>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      </Grid>
+    </>
   );
 };
 

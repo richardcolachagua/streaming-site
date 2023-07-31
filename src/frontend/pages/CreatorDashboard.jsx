@@ -1,10 +1,12 @@
 import React from "react";
 import { Box, Button, Typography, Divider, Grid } from "@mui/material";
+import Header from "../components/Headers/Header";
 
 const CreatorDashboard = () => {
   const uploadButton = () => {};
   return (
     <>
+      <Header />
       <Box
         sx={{
           width: 300,
