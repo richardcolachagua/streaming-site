@@ -7,7 +7,9 @@ const Movies = () => {
   return (
     <>
       <Header />
-      <Typography>Continue Watching for ____</Typography>
+      <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left" }}>
+        Continue Watching for ____
+      </Typography>
       <Stack
         direction="row"
         spacing={2}
@@ -63,7 +65,9 @@ const Movies = () => {
           content here
         </Box>
       </Stack>
-      <Typography>Top 10 in Movies Today</Typography>
+      <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left" }}>
+        Top 10 in Movies Today
+      </Typography>
       <Stack
         direction="row"
         spacing={2}

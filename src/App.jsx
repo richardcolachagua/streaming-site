@@ -7,6 +7,7 @@ import Shows from "./frontend/pages/Shows";
 import Following from "./frontend/pages/FollowingPage";
 import CreatorDashboard from "./frontend/pages/CreatorDashboard";
 import TrendingPage from "./frontend/pages/TrendingPage";
+import Movies from "./frontend/pages/Movies";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/shows" element={<Shows />} />
+        <Route path="/movies" element={<Movies />} />
         <Route path="/following" element={<Following />} />
         <Route path="/creatordashboard" element={<CreatorDashboard />} />
         <Route path="/trending" element={<TrendingPage />} />

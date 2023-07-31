@@ -64,7 +64,9 @@ const Shows = () => {
           content here
         </Box>
       </Stack>
-      <Typography>Top 10 in Shows Today</Typography>
+      <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left" }}>
+        Top 10 in Shows Today
+      </Typography>
       <Stack
         direction="row"
         spacing={2}
