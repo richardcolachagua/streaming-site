@@ -1,11 +1,11 @@
 import { Box, Grid, Link, Typography, Stack } from "@mui/material";
 import React from "react";
 import Footer from "../components/Footer";
-import StreamerHeader from "../components/Headers/StreamerHeader";
+import Header from "../components/Headers/Header";
 const Shows = () => {
   return (
     <>
-      <StreamerHeader />
+      <Header />
       <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left" }}>
         Continue Watching for ____
       </Typography>
