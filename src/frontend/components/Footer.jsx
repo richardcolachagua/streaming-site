@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Box, Typography, List, ListItemText, Link } from "@mui/material";
+import { Box, Typography, List, ListItemText } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [selected, setSelected] = useState("");
@@ -29,9 +30,10 @@ const Footer = () => {
             />
           </Link>
 
-          <ListItemText sx={{ color: "white" }} primary="Movies" />
-          <ListItemText sx={{ color: "white" }} primary="Brands" />
-          <ListItemText sx={{ color: "white" }} primary="News" />
+          <Link to="/Movies">
+            <ListItemText sx={{ color: "white" }} primary="Movies" />
+          </Link>
+
         </List>
         <List align="left">
           <Typography variant="h6" color="white" align="left">
@@ -44,19 +46,18 @@ const Footer = () => {
           />
           <ListItemText sx={{ color: "white" }} primary="Terms of Use" />
           <ListItemText sx={{ color: "white" }} primary="Privacy Policy" />
-          <ListItemText
-            sx={{ color: "white" }}
-            primary="Do Not Sell My Personal Information"
-          />
+
         </List>
         <List align="left">
           <Typography variant="h6" color="white" align="left">
             Information
           </Typography>
-          <ListItemText sx={{ color: "white" }} primary="Help/Contact Us" />
+          <Link to="/contact">
+            <ListItemText sx={{ color: "white" }} primary="Help/Contact Us" />
+          </Link>
+
           <ListItemText sx={{ color: "white" }} primary="Closed Captioning" />
-          <ListItemText sx={{ color: "white" }} primary="Careers" />
-          <ListItemText sx={{ color: "white" }} primary="About Streaming" />
+
         </List>
       </Box>
     </Box>
