@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { Box, Typography, Button, Menu, MenuItem, Link } from "@mui/material";
+import { Box, Typography, Button, Menu, MenuItem } from "@mui/material";
+import { Link } from "react-router-dom";
+
 
 const MovieBanner = () => {
     const [anchorEl, setAnchorEl] = useState(null);

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Box, Typography, Button, Menu, MenuItem, Link } from "@mui/material";
+import { Box, Typography, Button, Menu, MenuItem } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const TvShowBanner = () => {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -67,10 +68,10 @@ const TvShowBanner = () => {
             >
                 {isMuted ? "Unmute" : "Mute"}
             </Button>
-            <Button variant="contained" color="white" sx={{ borderRadius: 3 }}>
+            <Button variant="contained" sx={{ borderRadius: 3 }}>
                 Play
             </Button>
-            <Button variant="contained" color="grey" sx={{ borderRadius: 3 }}>
+            <Button variant="contained" sx={{ borderRadius: 3 }}>
                 More Info
             </Button>
             <video
