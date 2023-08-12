@@ -2,11 +2,13 @@ import React from "react";
 import { Box, Typography, Stack } from "@mui/material";
 import Header from "../components/Headers/Header";
 import Footer from "../components/Footer";
+import MovieBanner from "../components/Banners/MovieBanner"
 
 const Movies = () => {
   return (
     <>
       <Header />
+      <MovieBanner />
       <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left" }}>
         Continue Watching for ____
       </Typography>

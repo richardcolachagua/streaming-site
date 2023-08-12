@@ -1,4 +1,3 @@
-import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import LandingPage from "./frontend/pages/LandingPage";
 import Login from "./frontend/auth/Login";
@@ -8,6 +7,7 @@ import Following from "./frontend/pages/FollowingPage";
 import CreatorDashboard from "./frontend/pages/CreatorDashboard";
 import TrendingPage from "./frontend/pages/TrendingPage";
 import Movies from "./frontend/pages/Movies";
+import MemberSettings from "./frontend/pages/Settings/MemberSettings";
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
         <Route path="/following" element={<Following />} />
         <Route path="/creatordashboard" element={<CreatorDashboard />} />
         <Route path="/trending" element={<TrendingPage />} />
+        <Route path="/membersettings" element={<MemberSettings />} />
       </Routes>
     </div>
   );
