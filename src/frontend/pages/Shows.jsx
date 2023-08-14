@@ -3,8 +3,11 @@ import React from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Headers/Header";
 import TvShowBanner from "../components/Banners/TvShowBanner";
+import Comments from "../components/Reviews/Comments";
+import RatingsComponent from "../components/Reviews/RatingComponent"
 
 const Shows = () => {
+
   return (
     <>
       <Header />
@@ -195,6 +198,8 @@ const Shows = () => {
           content here
         </Box>
       </Stack>
+      <Comments />
+      <RatingsComponent />
       <Footer />
     </>
   );
