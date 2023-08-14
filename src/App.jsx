@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import LandingPage from "./frontend/pages/LandingPage";
 import Login from "./frontend/auth/Login";
 import SignupPage from "./frontend/auth/Signup";
-import Shows from "./frontend/pages/Shows";
+import Shows from "./frontend/pages/Shows/Shows";
 import Following from "./frontend/pages/FollowingPage";
 import CreatorDashboard from "./frontend/pages/CreatorDashboard";
 import TrendingPage from "./frontend/pages/TrendingPage";
