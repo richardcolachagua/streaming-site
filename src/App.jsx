@@ -8,6 +8,7 @@ import CreatorDashboard from "./frontend/pages/CreatorDashboard";
 import TrendingPage from "./frontend/pages/TrendingPage";
 import Movies from "./frontend/pages/Movies";
 import MemberSettings from "./frontend/pages/Settings/MemberSettings";
+import ActionShow from "./frontend/pages/Shows/Genres/ActionShow";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/creatordashboard" element={<CreatorDashboard />} />
         <Route path="/trending" element={<TrendingPage />} />
         <Route path="/membersettings" element={<MemberSettings />} />
+        <Route path="/shows/shows-action" element={<ActionShow />} />
       </Routes>
     </div>
   );
