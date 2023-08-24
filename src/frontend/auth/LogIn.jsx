@@ -23,6 +23,10 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import * as Yup from "yup";
 import { Formik } from "formik";
 
+const PRIMARY_COLOR = "primary";
+const PASSWORD_VISIBILITY_ICON_COLOR = "action";
+const SPACING = 2;
+
 const Login = () => {
   const [checked, setChecked] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -40,24 +44,23 @@ const Login = () => {
       <Box>
         <Stack
           direction="row"
-          spacing={2}
+          spacing={SPACING}
           sx={{
-            bgcolor: "beige",
+            bgcolor: PRIMARY_COLOR,
             width: 1000,
           }}
         >
-          <Link to="/signup">
+          <RouterLink to="/signup">
             <Button
               variant="text"
               sx={{
                 fontWeight: "bold",
                 fontSize: "16px",
-                Link: "/signup",
               }}
             >
               Sign Up
             </Button>
-          </Link>
+          </RouterLink>
         </Stack>
       </Box>
       <Box
@@ -76,7 +79,7 @@ const Login = () => {
             direction="row"
             justifyContent="space-between"
             alignItems="baseline"
-            sx={{ mb: { xs: -0.5, sm: -0.5 } }}
+            sx={{ mb: { xs: -SPACING, sm: -SPACING } }}
           >
             <Typography variant="h4" sx={{ textAlign: "center", mb: 3 }}>
               Sign In
@@ -87,7 +90,7 @@ const Login = () => {
               to="/signup"
               variant="body1"
               sx={{ textDecoration: "none" }}
-              color="primary"
+              color={PRIMARY_COLOR}
             >
               Don't have an account?
             </Typography>
@@ -130,10 +133,13 @@ const Login = () => {
               values,
             }) => (
               <form noValidate onSubmit={handleSubmit}>
-                <Grid container spacing={3}>
+                <Grid container spacing={SPACING}>
                   <Grid item xs={12}>
                     <Stack spacing={1}>
-                      <InputLabel htmlFor="email-login">
+                      <InputLabel
+                        htmlFor="email-login"
+                        style={{ cursor: "pointer" }}
+                      >
                         Email Address
                       </InputLabel>
                       <OutlinedInput
