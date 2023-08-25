@@ -3,7 +3,6 @@ import { Box, Button, Typography, Divider, Grid } from "@mui/material";
 import Header from "../components/Headers/Header";
 
 const CreatorDashboard = () => {
-  const uploadButton = () => {};
   return (
     <>
       <Header />
@@ -34,6 +33,7 @@ const CreatorDashboard = () => {
           marginBottom: "50px",
         }}
       >
+        <Typography>Upload Your Project Here</Typography>
         <Button variant="contained" sx={{ fontWeight: "bold" }}>
           Upload Videos
         </Button>
@@ -52,6 +52,10 @@ const CreatorDashboard = () => {
         <Divider variant="middle" />
 
         <Typography variant="h4">Current Subscribers</Typography>
+
+        <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+          Summary
+        </Typography>
       </Box>
     </>
   );
