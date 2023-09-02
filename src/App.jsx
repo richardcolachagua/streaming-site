@@ -4,7 +4,7 @@ import Login from "./frontend/auth/Login";
 import SignupPage from "./frontend/auth/Signup";
 import Shows from "./frontend/pages/Shows/Shows";
 import Following from "./frontend/pages/FollowingPage";
-import CreatorDashboard from "./frontend/pages/CreatorDashboard";
+import CreatorDashboard from "./frontend/Creator/CreatorDashboard";
 import TrendingPage from "./frontend/pages/TrendingPage";
 import Movies from "./frontend/pages/Movies";
 import MemberSettings from "./frontend/pages/Settings/MemberSettings";

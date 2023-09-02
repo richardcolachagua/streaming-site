@@ -11,7 +11,7 @@ const Header = () => {
         justifyContent="space-between"
         sx={{
           bgcolor: "beige",
-          width: 700,
+          width: 1000,
           marginBottom: "25px",
         }}
       >
