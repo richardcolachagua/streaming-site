@@ -10,6 +10,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import CreatorSideBar from "./CreatorSideBar";
 
 const fetchChannelAnalytics = () => {
   const analyticsData = {
@@ -40,17 +41,15 @@ const CreatorDashboard = () => {
   return (
     <>
       <Header />
+      <CreatorSideBar />
       <Grid container spacing={3}>
-        <Grid>
+        <Grid item xs={12}>
           <Box
             sx={{
               width: 300,
               height: 100,
               backgroundColor: "primary.dark",
-              "&:hover": {
-                backgroundColor: "primary.main",
-                opacity: [0.9, 0.8, 0.7],
-              },
+              "&:hover": {},
               marginLeft: "50px",
               marginBottom: "50px",
               display: "flex",
