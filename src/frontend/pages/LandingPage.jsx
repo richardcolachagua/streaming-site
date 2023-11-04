@@ -72,7 +72,7 @@ const LandingPage = () => {
       </Box>
       <Box sx={{ padding: "32px" }}>
         <Typography fontSize={48} variant="h2" sx={{ fontWeight: "bold" }}>
-          ABOUT US
+          WHERE STREAMING MEETS COMMUNITY
         </Typography>
         <Typography fontSize={20} variant="h2" sx={{ fontWeight: "bold" }}>
           ____ is a site dedicated to streaming with the creative community and

@@ -1,6 +1,16 @@
 import React, { useState } from "react";
-import { Box, Grid, Typography, Avatar, Button } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Typography,
+  Avatar,
+  Button,
+  Pagination,
+  Stack,
+} from "@mui/material";
 import Header from "../components/Headers/Header";
+
+import Footer from "../components/Footer";
 
 const Following = () => {
   const [selectedOption, setSelectedOption] = useState("Following");
@@ -85,12 +95,13 @@ const Following = () => {
         container
         sx={{
           overflow: "auto",
-          width: "900px",
+          width: "1000px",
           height: "400px",
           backgroundColor: "#0000D5",
           borderRadius: "5px",
           display: "flex",
           marginBottom: "16px",
+          marginLeft: "100px",
         }}
       >
         <Box
@@ -98,12 +109,13 @@ const Following = () => {
             display: "flex",
             justifyContent: "center",
             marginBottom: "32px",
+            marginTop: "25px",
           }}
         >
           <Button
             variant={selectedOption === "Following" ? "contained" : "outlined"}
             onClick={handleToggle}
-            sx={{ marginRight: "16px" }}
+            sx={{ marginRight: "100px", marginLeft: "100px" }}
           >
             <Typography variant="h4" gutterBottom>
               Following ({count})
@@ -113,6 +125,7 @@ const Following = () => {
           <Button
             variant={selectedOption === "Followers" ? "contained" : "outlined"}
             onClick={handleToggle}
+            sx={{ marginRight: "100px", marginLeft: "100px" }}
           >
             <Typography variant="h4" gutterBottom>
               Followers ({count})
@@ -154,7 +167,11 @@ const Following = () => {
             ))}
           </Grid>
         </Box>
+        <Stack>
+          <Pagination count={10} color="primary" />
+        </Stack>
       </Grid>
+      <Footer />
     </>
   );
 };
