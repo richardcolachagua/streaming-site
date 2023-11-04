@@ -24,7 +24,7 @@ import * as Yup from "yup";
 import { Formik } from "formik";
 
 const PRIMARY_COLOR = "primary";
-const PASSWORD_VISIBILITY_ICON_COLOR = "action";
+//const PASSWORD_VISIBILITY_ICON_COLOR = "action";
 const SPACING = 2;
 
 const Login = () => {
@@ -46,8 +46,8 @@ const Login = () => {
           direction="row"
           spacing={SPACING}
           sx={{
-            bgcolor: PRIMARY_COLOR,
-            width: 1000,
+            backgroundColor: "#000",
+            justifyContent: "right",
           }}
         >
           <RouterLink to="/signup">
@@ -61,6 +61,18 @@ const Login = () => {
               Sign Up
             </Button>
           </RouterLink>
+
+          <RouterLink to="/landingpage">
+            <Button
+              variant="text"
+              sx={{
+                fontWeight: "bold",
+                fontSize: "16px",
+              }}
+            >
+              Home
+            </Button>
+          </RouterLink>
         </Stack>
       </Box>
       <Box
@@ -69,7 +81,7 @@ const Login = () => {
           alignItems: "center",
           justifyContent: "center",
           minHeight: "100vh",
-          backgroundColor: "#f5f5f5",
+          backgroundColor: "#000",
         }}
       >
         <Box
