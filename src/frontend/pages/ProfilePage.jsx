@@ -10,9 +10,7 @@ import {
   MenuItem,
   Select,
 } from "@mui/material";
-import Header from "../../components/Header.jsx";
-import locations from "../../components/locations.jsx";
-
+import locations from "../../backend/Locations";
 // Avatar
 // Add an input element to the ProfilePage component to allow the user to select an image file.
 // The sx prop is used to set the width and height of the Avatar component.
@@ -105,7 +103,6 @@ const ProfilePage = () => {
 
   return (
     <Box>
-      <Header />
       <Typography sx={{ fontWeight: "bold", fontSize: 20 }}>
         Customize Your Profile
       </Typography>
@@ -144,6 +141,7 @@ const ProfilePage = () => {
               )}
             </Select>
           </FormControl>
+
           <FormControl fullWidth>
             <InputLabel id="city-select-label">City</InputLabel>
             <Select

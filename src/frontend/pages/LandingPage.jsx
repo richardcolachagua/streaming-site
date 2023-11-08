@@ -2,12 +2,14 @@ import React from "react";
 import HomepageCard from "../components/HomepageCard";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
-import { Box, Typography, Button, Container } from "@mui/material";
+import { Box, Typography, Button, Container, Stack } from "@mui/material";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FeatureSection from "../components/CreatorStreamerFeatures";
+
+const SPACING = 2;
 
 const LandingPage = () => {
   return (
@@ -17,39 +19,47 @@ const LandingPage = () => {
         color: "#fff",
       }}
     >
-      <Box
-        sx={{ padding: "32px", display: "flex", justifyContent: "flex-end" }}
-      >
-        <Link to="/login">
-          <Button
-            variant="contained"
-            sx={{
-              backgroundColor: "#FF1F33",
-              marginRight: "16px",
-              fontWeight: "bold",
-              fontSize: "16px",
-              borderRadius: "30px",
-              Link: "/login",
-            }}
-          >
-            Login
-          </Button>
-        </Link>
-        <Link to="/signup">
-          <Button
-            variant="contained"
-            sx={{
-              backgroundColor: "#FF1F33",
-              marginRight: "16px",
-              fontWeight: "bold",
-              fontSize: "16px",
-              borderRadius: "30px",
-            }}
-          >
-            Sign Up
-          </Button>
-        </Link>
+      <Box>
+        <Stack
+          direction="row"
+          spacing={SPACING}
+          sx={{
+            backgroundColor: "#000",
+            justifyContent: "right",
+          }}
+        >
+          <Link to="/login">
+            <Button
+              variant="contained"
+              sx={{
+                backgroundColor: "#FF1F33",
+                marginRight: "16px",
+                fontWeight: "bold",
+                fontSize: "16px",
+                borderRadius: "30px",
+                Link: "/login",
+              }}
+            >
+              Login
+            </Button>
+          </Link>
+          <Link to="/signup">
+            <Button
+              variant="contained"
+              sx={{
+                backgroundColor: "#FF1F33",
+                marginRight: "16px",
+                fontWeight: "bold",
+                fontSize: "16px",
+                borderRadius: "30px",
+              }}
+            >
+              Sign Up
+            </Button>
+          </Link>
+        </Stack>
       </Box>
+
       <Box sx={{ padding: "32px" }}>
         <Typography fontSize={48} variant="h2" sx={{ fontWeight: "bold" }}>
           The New Age of Streaming

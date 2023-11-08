@@ -1,10 +1,12 @@
 import React from "react";
 import { Box, Typography, Stack } from "@mui/material";
 import Footer from "../components/Footer";
+import Header from "../components/Headers/Header";
 
 const TrendingPage = () => {
   return (
     <>
+      <Header />
       <Typography variant="h6" sx={{ fontWeight: "bold", textAlign: "left" }}>
         New on ____
       </Typography>

@@ -6,6 +6,7 @@ import Shows from "./frontend/pages/Shows/Shows";
 import Following from "./frontend/pages/FollowingPage";
 import CreatorDashboard from "./frontend/Creator/CreatorDashboard";
 import TrendingPage from "./frontend/pages/TrendingPage";
+import ProfilePage from "./frontend/pages/ProfilePage";
 import Movies from "./frontend/pages/Movies";
 import MemberSettings from "./frontend/pages/Settings/MemberSettings";
 import ActionShow from "./frontend/pages/Shows/Genres/ActionShow";
@@ -24,6 +25,7 @@ function App() {
         <Route path="/trending" element={<TrendingPage />} />
         <Route path="/membersettings" element={<MemberSettings />} />
         <Route path="/shows/shows-action" element={<ActionShow />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </div>
   );
